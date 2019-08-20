@@ -28,6 +28,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+app.get('/articles', function(res, res) {
+  db.scrapedData.find({}, function(error, data) {
+    if (error) {
+      console.log("Error: " + error);
+    }
+    else {
+      res.json(data);
+    }
+  })
+})
+
 app.get('/scrape', function(req, res) {
   axios.get('https://www.oceannews.com/').then(function(response) {
     var $ = cheerio.load(response.data)
@@ -40,7 +51,7 @@ app.get('/scrape', function(req, res) {
       if (title && link) {
         db.scrapedData.insert({
           title: title,
-          link: link
+          link: ("oceannews.com") + link;
         }, 
         function(err, inserted) {
           if (err) {
