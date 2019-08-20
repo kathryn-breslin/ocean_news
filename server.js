@@ -51,7 +51,7 @@ app.get('/scrape', function(req, res) {
       if (title && link) {
         db.scrapedData.insert({
           title: title,
-          link: ("oceannews.com") + link;
+          link: ("oceannews.com") + link
         }, 
         function(err, inserted) {
           if (err) {

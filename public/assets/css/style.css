@@ -1,0 +1,11 @@
+body, html {
+    height: 100%;
+  }
+
+.bodyContent {
+    background-image: url("../images/ocean-poster.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    background-size: auto;
+}
