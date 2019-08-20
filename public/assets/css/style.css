@@ -21,3 +21,11 @@ body, html {
 .jumbotron h1 {
     font-size: 120px;
 }
+
+#articles {
+    background-color: #001F46;
+}
+
+p {
+    color: white;
+}

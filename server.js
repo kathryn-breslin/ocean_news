@@ -60,7 +60,7 @@ app.get('/scrape', function(req, res) {
           else {
             console.log(inserted);
           }
-        });
+        });      
       }
     })
   });
