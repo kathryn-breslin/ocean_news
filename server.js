@@ -4,8 +4,22 @@ var logger = require('morgan');
 var axios = require('axios');
 var cheerio = require('cheerio');
 
+
 var PORT = process.env.PORT || 8080;
 var app = express();
+
+//Database connection
+var databaseUrl = "oceanDB";
+var collections = ["scrapedData"];
+
+//Mongojs configuration
+var db = mongojs(databaseUrl, collections);
+db.on("error", function(error) {
+  console.log("Database Error: " + error);
+});
+
+//HTML Route
+require("./routes/htmlRoutes.js")(app)
 
 app.use(logger('dev'));
 
@@ -19,16 +33,27 @@ app.get('/scrape', function(req, res) {
     var $ = cheerio.load(response.data)
 
     $('.title').each(function(i, element) {
-      var result = {};
-      result.title = $(this).children('a').text();
-      result.link = $(this).children('a').attr('href');
+      // var result = {};
+      var title = $(this).children('a').text();
+      var link = $(this).children('a').attr('href');
 
-      console.log(result);
+      if (title && link) {
+        db.scrapedData.insert({
+          title: title,
+          link: link
+        }, 
+        function(err, inserted) {
+          if (err) {
+            console.log(err);
+          }
+          else {
+            console.log(inserted);
+          }
+        });
+      }
     })
   });
 });
-
-require("./routes/htmlRoutes.js")(app)
 
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
