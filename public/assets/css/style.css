@@ -9,3 +9,15 @@ body, html {
     height: 100%;
     background-size: auto;
 }
+
+.jumbotron {
+    background: none;
+    /* font-family: 'Righteous', cursive; */
+    font-family: 'Fredericka the Great', cursive;
+    color: white;
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 120px;
+}
