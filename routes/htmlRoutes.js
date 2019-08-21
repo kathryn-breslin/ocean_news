@@ -2,10 +2,10 @@ var path = require('path');
 
 module.exports = function(app) {
     app.get('/', function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/views/index.html"));
+        res.render('index')
     });
 
     app.get('/saved', function(res, res) {
-        res.sendFile(path.join(__dirname, "../public/views/saved.html"));
+        res.render('saved');
     });
 }

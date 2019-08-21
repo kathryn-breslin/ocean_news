@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ocean News</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet" />
+
+    <!--jQuery for Bootsrap-->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Scripts-->
+    <script src="../assets/js/logic.js"></script>
+
+<body>
+
+    <div class="bodyContent">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Ocean News</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/articles">All Articles <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/saved">Saved</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/scrape">Scrape</a>
+                    </li>
+                </ul>
+                <!-- <form class="form-inline my-2 my-lg-0">
+            <input
+              class="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            /> -->
+                <button id="clearArticles" class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                    Clear Articles
+                </button>
+                <!-- </form> -->
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-12">
+                <div class="jumbotron jumbotron-fluid">
+                    <div class="container">
+                        <h1 class="display-4">Ocean News</h1>
+                        <p class="lead">
+                            A place to fish out the best news in the sea.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{{ body }}}
+</body>
+
+</html>
