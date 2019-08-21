@@ -40,9 +40,9 @@ body, html {
     object-fit: cover;
 }
 
-/* .new-article-div {
-    background-color: #001F46;
-} */
+.commentButton, .articleButton {
+    margin: 10px;
+}
 
 p {
     color: white;

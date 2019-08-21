@@ -23,12 +23,21 @@ function showArticles() {
 
         var link = $('<a href="https://www.oceannews.com' + data[i].link + '">Go to Article</a>');
             link.addClass('btn btn-primary');
+            link.addClass('articleButton');
+            link.addClass('float-right')
             link.attr('target', '_blank');
+        
+        var button = $('<input type="button" value="Add Comment"/>');
+            button.addClass('btn btn-primary');
+            button.addClass('commentButton');
+            button.addClass('float-right')
+
 
         
         cardBody.append(cardImage);
         cardBody.append(cardTitle);
         cardBody.append(link);
+        cardBody.append(button);
         cardDiv.append(cardHeader);
         cardDiv.append(cardBody);
 
