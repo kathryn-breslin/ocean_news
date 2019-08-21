@@ -52,15 +52,50 @@ function showArticles() {
 }
 showArticles();
 
-$(document).on('click', ".commentButton", function(){
+$(document).on('click', ".commentButton", function() {
     var commentId = $(this).attr('data-id');
-    console.log("A comment has been made with ID: " + commentId);
 
-    // $.ajax({
-    //     method: "GET", 
-    //     url: "/articles/" + commentId
-    // })
-    // .then(function(data) {
-    //     console.log(data);
-    // })
-});
+    $.ajax({
+        method: "GET", 
+        url: "/articles/" + commentId
+    })
+    .then(function(data) {
+        console.log(data);
+
+        if (data.comment) {
+            console.log("Old Commenter's Name: " + data.comment.name);
+            console.log("Old Commenter's Comment: " + data.comment.comment);
+
+        }
+    })
+})
+// $(document).on('click', ".commentButton", function(){
+
+//     var commentId = $(this).attr('data-id');
+//     var commentName = $('#commentName').empty()
+//     var commentComment = $('#commentComment').empty();
+
+//     console.log("A comment has been made with ID: " + commentId);
+
+//     $('#saveComment').on('click', function() {
+//         commentName = $('#commentName').val();
+//         commentComment = $('#commentComment').val();
+
+//         console.log("Name: " + commentName);
+//         console.log("Comment: " + commentComment);
+
+//         $.ajax({
+//             method: "POST", 
+//             url: "/articles/" + commentId, 
+//             data: {
+//                 name: commentName, 
+//                 body: commentComment 
+//             }
+//         })
+//         .then(function(data) {
+//             console.log(data);
+//             $('#commentName').empty()
+//             $('#commentComment').empty();
+//         })
+//     })
+// });
