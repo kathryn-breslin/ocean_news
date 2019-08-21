@@ -21,9 +21,23 @@ body, html {
     font-size: 120px;
 }
 
-#articles {
+#articlesContainer {
     background-color: #001F46;
 }
+
+#articles {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.new-article-div {
+    margin-bottom: 20px;
+}
+
+
+/* .new-article-div {
+    background-color: #001F46;
+} */
 
 p {
     color: white;

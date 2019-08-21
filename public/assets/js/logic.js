@@ -20,9 +20,10 @@ function showArticles() {
         
         var link = $('<a href="https://www.oceannews.com' + data[i].link + '">Go to Article</a>');
             link.addClass('btn btn-primary');
+
         
-        cardBody.append(link);
         cardBody.append(cardTitle);
+        cardBody.append(link);
         cardDiv.append(cardHeader);
         cardDiv.append(cardBody);
 
