@@ -19,7 +19,7 @@ function showArticles() {
             cardTitle.append('<h5>' + data[i].title + '</h5>');
         
         var cardImage = $('<img src="' + data[i].image + '">');
-            cardImage.addClass('linkImage', 'card-image-top');
+            cardImage.addClass('linkImage', 'card-img-top');
 
         var link = $('<a href="https://www.oceannews.com' + data[i].link + '">Go to Article</a>');
             link.addClass('btn btn-primary');

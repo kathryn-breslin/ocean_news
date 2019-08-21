@@ -34,6 +34,11 @@ body, html {
     margin-bottom: 20px;
 }
 
+.linkImage {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
 
 /* .new-article-div {
     background-color: #001F46;
