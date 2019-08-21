@@ -1,5 +1,6 @@
 var express = require('express');
-var mongojs = require('mongojs');
+// var mongojs = require('mongojs');
+var mongoose = require('mongoose');
 var logger = require('morgan');
 var axios = require('axios');
 var cheerio = require('cheerio');
@@ -8,15 +9,9 @@ var cheerio = require('cheerio');
 var PORT = process.env.PORT || 8080;
 var app = express();
 
+var db = require('./models');
 //Database connection
-var databaseUrl = "oceanDB";
-var collections = ["scrapedData"];
-
-//Mongojs configuration
-var db = mongojs(databaseUrl, collections);
-db.on("error", function(error) {
-  console.log("Database Error: " + error);
-});
+mongoose.connect("mongodb://localhost/oceanDB", { useNewUrlParser: true });
 
 //HTML Route
 require("./routes/htmlRoutes.js")(app)
@@ -29,14 +24,13 @@ app.use(express.json());
 app.use(express.static("public"));
 
 app.get('/articles', function(res, res) {
-  db.scrapedData.find({}, function(error, data) {
-    if (error) {
-      console.log("Error: " + error);
-    }
-    else {
-      res.json(data);
-    }
-  })
+  db.Article.find({})
+    .then(function(dbArticle) {
+      res.json(dbArticle);
+    })
+    .catch(function(err) {
+      res.json(err);
+    })
 })
 
 app.get('/scrape', function(req, res) {
@@ -44,27 +38,36 @@ app.get('/scrape', function(req, res) {
     var $ = cheerio.load(response.data)
 
     $('li.articlelist-item').each(function(i, element) {
-      // var results = [];
-      var title = $(element).find("a").text();
-      var link = $(element).find("a").attr('href');
-      var image = $(element).find("a").find("img").attr("src");
-      if (title && link) {
-        db.scrapedData.insert({
-          title: title,
-          image: image,
-          link: link
-        }, 
-        function(err, inserted) {
-          if (err) {
-            console.log(err);
-          }
-          else {
-            console.log(inserted);
-          }
-        });      
-      }
-    })
+      var results = {};
+      results.title = $(element).find("a").text();
+      results.link = $(element).find("a").attr('href');
+      results.image = $(element).find("a").find("img").attr("src");
+
+      db.Article.create(results).then(function(dbArticle) {
+        console.log(dbArticle);
+      })
+      .catch(function(err) {
+        console.log(err);
+      })
+      // if (title && link) {
+      //   db.scrapedData.insert({
+      //     title: title,
+      //     image: image,
+      //     link: link
+      //   }, 
+      //   function(err, inserted) {
+      //     if (err) {
+      //       console.log(err);
+      //     }
+      //     else {
+      //       console.log(inserted);
+      //     }
+      //   });      
+      // }
+    });
+    res.send("Scrape Complete");
   });
+  
 });
 
 app.listen(PORT, function() {
