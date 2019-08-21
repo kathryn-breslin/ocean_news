@@ -9,8 +9,8 @@ var cheerio = require('cheerio');
 var PORT = process.env.PORT || 8080;
 var app = express();
 
-var db = require('./models');
 //Database connection
+var db = require('./models');
 mongoose.connect("mongodb://localhost/oceanDB", { useNewUrlParser: true });
 
 //HTML Route
@@ -49,21 +49,6 @@ app.get('/scrape', function(req, res) {
       .catch(function(err) {
         console.log(err);
       })
-      // if (title && link) {
-      //   db.scrapedData.insert({
-      //     title: title,
-      //     image: image,
-      //     link: link
-      //   }, 
-      //   function(err, inserted) {
-      //     if (err) {
-      //       console.log(err);
-      //     }
-      //     else {
-      //       console.log(inserted);
-      //     }
-      //   });      
-      // }
     });
     res.send("Scrape Complete");
   });

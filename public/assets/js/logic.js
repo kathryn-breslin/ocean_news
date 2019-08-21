@@ -3,8 +3,7 @@ function showArticles() {
 
   $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
-      var cardDiv = $("<div>");
-      cardDiv.addClass("card");
+      var cardDiv = $("<div class='card' style='width: 20rem;'>");
       cardDiv.addClass("new-article-div");
 
       var cardHeader = $("<h5>");
@@ -21,6 +20,8 @@ function showArticles() {
       var cardImage = $('<img src="' + data[i].image + '">');
       cardImage.addClass("linkImage", "card-img-top");
 
+      var buttonsDiv = $('<div id="buttonsDiv">');
+
       var link = $(
         '<a href="https://www.oceannews.com' +
           data[i].link +
@@ -34,12 +35,14 @@ function showArticles() {
       var button = $('<input data-id="' + data[i]._id + '" type="button" data-toggle="modal" data-target="#exampleModal" value="Add Comment"/>');
       button.addClass("btn btn-primary");
       button.addClass("commentButton");
-      button.addClass("float-right");
+    //   button.addClass("float-right");
 
+      buttonsDiv.append(link, button);
       cardBody.append(cardImage);
       cardBody.append(cardTitle);
-      cardBody.append(link);
-      cardBody.append(button);
+      cardBody.append(buttonsDiv);
+    //   cardBody.append(link);
+    //   cardBody.append(button);
       cardDiv.append(cardHeader);
       cardDiv.append(cardBody);
 
