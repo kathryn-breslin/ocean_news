@@ -31,7 +31,7 @@ function showArticles() {
       link.addClass("float-right");
       link.attr("target", "_blank");
 
-      var button = $('<input data-id="' + data[i]._id + '" type="button" value="Add Comment"/>');
+      var button = $('<input data-id="' + data[i]._id + '" type="button" data-toggle="modal" data-target="#exampleModal" value="Add Comment"/>');
       button.addClass("btn btn-primary");
       button.addClass("commentButton");
       button.addClass("float-right");
@@ -51,7 +51,13 @@ showArticles();
 
 $(document).on('click', ".commentButton", function(){
     var commentId = $(this).attr('data-id');
-
     console.log("A comment has been made with ID: " + commentId);
 
+    // $.ajax({
+    //     method: "GET", 
+    //     url: "/articles/" + commentId
+    // })
+    // .then(function(data) {
+    //     console.log(data);
+    // })
 });
