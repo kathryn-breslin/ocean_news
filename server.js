@@ -43,15 +43,16 @@ app.get('/scrape', function(req, res) {
   axios.get('https://www.oceannews.com/').then(function(response) {
     var $ = cheerio.load(response.data)
 
-    $('.title').each(function(i, element) {
-      // var result = {};
-      var title = $(this).children('a').text();
-      var link = $(this).children('a').attr('href');
-
+    $('li.articlelist-item').each(function(i, element) {
+      // var results = [];
+      var title = $(element).find("a").text();
+      var link = $(element).find("a").attr('href');
+      var image = $(element).find("a").find("img").attr("src");
       if (title && link) {
         db.scrapedData.insert({
           title: title,
-          link: ("oceannews.com") + link
+          image: image,
+          link: link
         }, 
         function(err, inserted) {
           if (err) {

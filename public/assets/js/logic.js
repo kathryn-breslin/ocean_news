@@ -18,11 +18,15 @@ function showArticles() {
             cardTitle.attr('data-id=', data[i._id]);
             cardTitle.append('<h5>' + data[i].title + '</h5>');
         
+        var cardImage = $('<img src="' + data[i].image + '">');
+            cardImage.addClass('linkImage', 'card-image-top');
+
         var link = $('<a href="https://www.oceannews.com' + data[i].link + '">Go to Article</a>');
             link.addClass('btn btn-primary');
             link.attr('target', '_blank');
 
         
+        cardBody.append(cardImage);
         cardBody.append(cardTitle);
         cardBody.append(link);
         cardDiv.append(cardHeader);
