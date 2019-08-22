@@ -1,11 +1,10 @@
+
 var express = require('express');
 // var mongojs = require('mongojs');
 var mongoose = require('mongoose');
 var logger = require('morgan');
 var axios = require('axios');
 var cheerio = require('cheerio');
-var exphbs = require("express-handlebars");
-
 
 
 var PORT = process.env.PORT || 8080;
@@ -13,10 +12,12 @@ var app = express();
 
 //Database connection
 var db = require('./models');
-mongoose.connect("mongodb://localhost/oceanDB", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/oceanDB";
+
+mongoose.connect(MONGODB_URI);
 
 //HTML Route
-var routes = require("./routes/htmlRoutes.js");
+require("./routes/htmlRoutes.js")(app)
 
 app.use(logger('dev'));
 
@@ -24,11 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(express.static("public"));
-
-// Connect Handlebars to our Express app
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-app.use(routes);
 
 app.get('/articles', function(res, res) {
   db.Article.find({})
