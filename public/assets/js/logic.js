@@ -3,7 +3,7 @@ function showArticles() {
 
   $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
-      var cardDiv = $("<div class='card' style='width: 20rem;'>");
+      var cardDiv = $("<div class='card'>");
       cardDiv.addClass("new-article-div");
 
       var cardHeader = $("<h5>");
@@ -44,7 +44,7 @@ function showArticles() {
       var commentsButton = $(
         '<input data-id="' +
           data[i]._id +
-          '" type="button" data-toggle="modal" data-target="#commentsModal" value="View Comments"/>'
+          '" type="button" class="commentsButton" data-toggle="modal" data-target="#commentsModal" value="View Comments"/>'
       );
       commentsButton.addClass("btn btn-primary");
       commentContainer.append(commentsButton);

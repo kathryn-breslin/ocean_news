@@ -11,8 +11,14 @@ router.get("/", function(req, res) {
     })
 });
 
-// router.get("/saved", function(res, res) {
-//   res.sendFile(path.join(__dirname, "../public/views/saved.html"));
-// });
+router.get("/saved", function(res, res) {
+  db.Article.find({})
+  .then(function(dbArticle) {
+    res.render("saved", { articles: dbArticle})
+  })
+  .catch(function(err) {
+    res.json(err);
+  })
+});
 
 module.exports = router;
