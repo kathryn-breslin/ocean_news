@@ -84,8 +84,47 @@
         </div>
       </div>
     </div>
-
   <!-- Modal for comment above-->
+
+  <!-- Modal to View comments below-->
+  <div
+  class="modal fade"
+  id="commentsModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="commentsModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="commentsModalLabel">All Comments</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >
+          Exit
+        </button>
+        <button id="saveComment" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal to view comments above-->
 
     <div class="bodyContent">
       <nav class="navbar navbar-dark bg-dark">

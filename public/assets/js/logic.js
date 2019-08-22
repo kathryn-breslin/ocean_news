@@ -3,7 +3,7 @@ function showArticles() {
 
   $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
-      var cardDiv = $("<div class='card' style='width: 20rem; height: 30rem;'>");
+      var cardDiv = $("<div class='card' style='width: 20rem;'>");
       cardDiv.addClass("new-article-div");
 
       var cardHeader = $("<h5>");
@@ -40,8 +40,17 @@ function showArticles() {
       button.addClass("btn btn-primary");
       button.addClass("commentButton");
       //   button.addClass("float-right");
+      var commentContainer = $('<div id="commentContainer"></div>');
+      var commentsButton = $(
+        '<input data-id="' +
+          data[i]._id +
+          '" type="button" data-toggle="modal" data-target="#commentsModal" value="View Comments"/>'
+      );
+      commentsButton.addClass("btn btn-primary");
+      commentContainer.append(commentsButton);
 
       buttonsDiv.append(link, button);
+      buttonsDiv.append(commentContainer);
       cardBody.append(cardImage);
       cardBody.append(cardTitle);
       cardBody.append(buttonsDiv);
@@ -51,11 +60,16 @@ function showArticles() {
       cardDiv.append(cardBody);
 
       $("#articles").append(cardDiv);
-
     }
   });
 }
 showArticles();
+
+$(document).on("click", "#viewComments", function() {
+  var commentId = $(this).attr("data-id");
+
+  //modal opens with comments
+});
 
 $(document).on("click", ".commentButton", function() {
   var commentId = $(this).attr("data-id");
@@ -68,27 +82,26 @@ $(document).on("click", ".commentButton", function() {
     if (data.comment) {
       console.log("Old Commenter's Name: " + data.comment.name);
       console.log("Old Commenter's Comment: " + data.comment.body);
-
+      var commentShow = $("<p>" + data.comment.name + "</p>");
+      $("#commentContainer").append(commentShow);
     }
   });
 
   $(document).on("click", "#saveComment", function() {
+    var name = $("#commentName").val();
+    var comment = $("#commentComment").val();
 
-    var name = $('#commentName').val();
-    var comment = $('#commentComment').val()
-
-      $.ajax({
-        method: "POST",
-        url: "/articles/" + commentId,
-        data: {
-            name: name,
-            body: comment
-        }
-    })
-    .then(function(data) {
-        console.log(data);
+    $.ajax({
+      method: "POST",
+      url: "/articles/" + commentId,
+      data: {
+        name: name,
+        body: comment
+      }
+    }).then(function(data) {
+      console.log(data);
     });
-    $('#commentName').empty()
-    $('#commentComment').empty();
+    $("#commentName").empty();
+    $("#commentComment").empty();
   });
 });
