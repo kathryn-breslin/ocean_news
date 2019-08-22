@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Ocean News</title>
-
-    <!-- Bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-
-    <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
-
-    <!-- Google Fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Righteous&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap"
-      rel="stylesheet"
-    />
-
-    <!--jQuery for Bootsrap-->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-    <!-- Scripts-->
-    <script src="../assets/js/logic.js"></script>
-  </head>
-  <body>
-    <!-- Modal -->
-    <div
+  <div
       class="modal fade"
       id="exampleModal"
       tabindex="-1"
@@ -149,10 +110,10 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/saved">Saved</a>
+              <a class="nav-link" href="/articles/saved">Saved</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/scrape">Scrape</a>
+              <a class="nav-link" href="/articles/scrape">Scrape</a>
             </li>
           </ul>
           <!-- <form class="form-inline my-2 my-lg-0">
@@ -168,25 +129,23 @@
           <!-- </form> -->
         </div>
       </nav>
-      <div class="row">
-        <div class="col-12">
-          <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">Ocean News</h1>
-              <p class="lead">
-                A place to fish out the best news in the sea.
-              </p>
-            </div>
-          </div>
+<div class="row">
+    <div class="col-12">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Ocean News</h1>
+          <p class="lead">
+            A place to fish out the best news in the sea.
+          </p>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12" id="articlesContainer">
-        <!-- <div id="articlesContainer"> -->
-          <div id="articles"></div>
-        <!-- </div> -->
-      </div>
-    </div>
-  </body>
-</html>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12" id="articlesContainer">
+    <!-- <div id="articlesContainer"> -->
+      <div id="articles"></div>
+    <!-- </div> -->
+  </div>
+</div>

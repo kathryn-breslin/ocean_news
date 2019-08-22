@@ -68,7 +68,17 @@ showArticles();
 $(document).on("click", "#viewComments", function() {
   var commentId = $(this).attr("data-id");
 
-  //modal opens with comments
+  $.ajax({
+    method: "GET",
+    url: "/articles/" + commentId
+  }).then(function(data) {
+    console.log(data);
+
+    if (data.comment) {
+      console.log("Old Commenter's Name: " + data.comment.name);
+      console.log("Old Commenter's Comment: " + data.comment.body);
+    }
+  });
 });
 
 $(document).on("click", ".commentButton", function() {
