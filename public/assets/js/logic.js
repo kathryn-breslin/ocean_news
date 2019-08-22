@@ -65,9 +65,9 @@ function showArticles() {
 }
 showArticles();
 
-$(document).on("click", "#viewComments", function() {
+$(document).on("click", ".commentsButton", function() {
   var commentId = $(this).attr("data-id");
-
+  console.log(commentId);
   $.ajax({
     method: "GET",
     url: "/articles/" + commentId
@@ -75,8 +75,12 @@ $(document).on("click", "#viewComments", function() {
     console.log(data);
 
     if (data.comment) {
-      console.log("Old Commenter's Name: " + data.comment.name);
-      console.log("Old Commenter's Comment: " + data.comment.body);
+
+      for (var i = 0; i < data.comment.length; i++) {
+        console.log("Old Commenter's Name: " + data.comment[i].name);
+        console.log("Old Commenter's Comment: " + data.comment[i].body);
+        $('.allCommentsBody').append('<p>' + data.comment[i].name + '</p>');
+      }
     }
   });
 });
@@ -89,12 +93,12 @@ $(document).on("click", ".commentButton", function() {
   }).then(function(data) {
     console.log(data);
 
-    if (data.comment) {
-      console.log("Old Commenter's Name: " + data.comment.name);
-      console.log("Old Commenter's Comment: " + data.comment.body);
-      var commentShow = $("<p>" + data.comment.name + "</p>");
-      $("#commentContainer").append(commentShow);
-    }
+    // if (data.comment) {
+    //   console.log("Old Commenter's Name: " + data.comment.name);
+    //   console.log("Old Commenter's Comment: " + data.comment.body);
+    //   var commentShow = $("<p>" + data.comment.name + "</p>");
+    //   $("#commentContainer").append(commentShow);
+    // }
   });
 
   $(document).on("click", "#saveComment", function() {
