@@ -3,7 +3,7 @@ function showArticles() {
 
   $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
-      var cardDiv = $("<div class='card' style='width: 20rem;'>");
+      var cardDiv = $("<div class='card' style='width: 20rem; height: 30rem;'>");
       cardDiv.addClass("new-article-div");
 
       var cardHeader = $("<h5>");
