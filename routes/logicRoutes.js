@@ -4,7 +4,7 @@ var axios = require('axios');
 var cheerio = require('cheerio');
 
 router.get('/', function(res, res) {
-    db.Article.find({})
+    db.Article.find().sort({ _id: -1 })
       .then(function(dbArticle) {
         res.json(dbArticle);
       })
