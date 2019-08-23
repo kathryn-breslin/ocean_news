@@ -74,17 +74,15 @@ $(document).on("click", ".commentsButton", function() {
   }).then(function(data) {
     console.log(data);
 
-    if (data.comment) {
-
+    // if (data.comment) {
       for (var i = 0; i < data.comment.length; i++) {
-        console.log("Old Commenter's Name: " + data.comment[i].name);
-        console.log("Old Commenter's Comment: " + data.comment[i].body);
-        $('.allCommentsBody').empty();
-        $('.allCommentsBody').append('<p> Name: ' + data.comment[i].name + '</p>');
-        $('.allCommentsBody').append('<p> Comments: ' + data.comment[i].body + '</p>');
-
+          $('.allCommentsBody').empty();
+          $('.allCommentsBody').append('<h4> Name: ' + data.comment[i].name + '</h4>');
+          $('.allCommentsBody').append('<p> Comments: ' + data.comment[i].body + '</p>');
+        // console.log("Old Commenter's Name: " + data.comment[i].name);
+        // console.log("Old Commenter's Comment: " + data.comment[i].body);
       }
-    }
+    // }
   });
 });
 
