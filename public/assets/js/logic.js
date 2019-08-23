@@ -79,7 +79,10 @@ $(document).on("click", ".commentsButton", function() {
       for (var i = 0; i < data.comment.length; i++) {
         console.log("Old Commenter's Name: " + data.comment[i].name);
         console.log("Old Commenter's Comment: " + data.comment[i].body);
-        $('.allCommentsBody').append('<p>' + data.comment[i].name + '</p>');
+        $('.allCommentsBody').empty();
+        $('.allCommentsBody').append('<p> Name: ' + data.comment[i].name + '</p>');
+        $('.allCommentsBody').append('<p> Comments: ' + data.comment[i].body + '</p>');
+
       }
     }
   });
@@ -92,13 +95,6 @@ $(document).on("click", ".commentButton", function() {
     url: "/articles/" + commentId
   }).then(function(data) {
     console.log(data);
-
-    // if (data.comment) {
-    //   console.log("Old Commenter's Name: " + data.comment.name);
-    //   console.log("Old Commenter's Comment: " + data.comment.body);
-    //   var commentShow = $("<p>" + data.comment.name + "</p>");
-    //   $("#commentContainer").append(commentShow);
-    // }
   });
 
   $(document).on("click", "#saveComment", function() {
