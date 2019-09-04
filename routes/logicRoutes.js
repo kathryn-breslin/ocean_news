@@ -19,8 +19,7 @@ router.get('/', function(res, res) {
           return db.Comment.remove({});
         })
         .then(function() {
-          // res.json({ ok: true })
-          res.redirect("/")
+          res.redirect("/");
         })
   });
 
@@ -41,7 +40,7 @@ router.get('/', function(res, res) {
           console.log(err);
         })
       });
-      res.send("Scrape Complete");
+      res.redirect("/");
     });
     
   });
