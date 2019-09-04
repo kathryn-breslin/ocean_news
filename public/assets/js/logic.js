@@ -133,20 +133,22 @@ $(document).on('click', '#clearArticles', function() {
     });
 });
 
-$(document).on('click', '.saveButton', function() {
-  console.log("Save!");
-  var articleID = $(this).attr("data-id");
-  // var article = $(this).data();
-  console.log("Article ID: " + articleID);
-  // console.log("Article: " + JSON.stringify(article));
+//For Saved feature - future implementation
 
-  $.ajax({
-    method: "PUT",
-    url: "/articles/" + articleID,
-    data: {
-      saved: 1
-    }
-  }).then(function(data) {
-    console.log("Saved Article: " + data);
-  });
-});
+// $(document).on('click', '.saveButton', function() {
+//   console.log("Save!");
+//   var articleID = $(this).attr("data-id");
+//   // var article = $(this).data();
+//   console.log("Article ID: " + articleID);
+//   // console.log("Article: " + JSON.stringify(article));
+
+//   $.ajax({
+//     method: "PUT",
+//     url: "/articles/" + articleID,
+//     data: {
+//       saved: 1
+//     }
+//   }).then(function(data) {
+//     console.log("Saved Article: " + JSON.stringify(data));
+//   });
+// });
