@@ -49,14 +49,14 @@ function showArticles() {
       commentsButton.addClass("btn btn-primary");
       commentContainer.append(commentsButton);
 
-      // var saveButton = $(
-      //   '<input data-id="' +
-      //     data[i]._id +
-      //     '" type="button" class="saveButton" value="Save"/>'
-      // );
+      var saveButton = $(
+        '<input data-id="' +
+          data[i]._id +
+          '" type="button" class="saveButton" value="Save"/>'
+      );
 
-      // saveButton.addClass("btn btn-primary");
-      // commentContainer.append(saveButton);
+      saveButton.addClass("btn btn-primary");
+      commentContainer.append(saveButton);
 
       buttonsDiv.append(link, button);
       buttonsDiv.append(commentContainer);
@@ -133,17 +133,20 @@ $(document).on('click', '#clearArticles', function() {
     });
 });
 
-// $(document).on('click', '.saveButton', function() {
-//   console.log("Save!");
-//   var article = $(this).attr("data-id");
-//   console.log("Article ID: " + article);
-//   $.ajax({
-//     method: "PUT",
-//     url: "/articles/" + article,
-//     data: {
-//       saved: 1
-//     }
-//   }).then(function(data) {
-//     console.log("Saved Article: " + data);
-//   });
-// });
+$(document).on('click', '.saveButton', function() {
+  console.log("Save!");
+  var articleID = $(this).attr("data-id");
+  // var article = $(this).data();
+  console.log("Article ID: " + articleID);
+  // console.log("Article: " + JSON.stringify(article));
+
+  $.ajax({
+    method: "PUT",
+    url: "/articles/" + articleID,
+    data: {
+      saved: 1
+    }
+  }).then(function(data) {
+    console.log("Saved Article: " + data);
+  });
+});

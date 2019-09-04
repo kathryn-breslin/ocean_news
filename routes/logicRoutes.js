@@ -55,6 +55,17 @@ router.get('/', function(res, res) {
         res.json(err);
       });
   });
+
+  router.put("/:id", function(req, res) {
+    db.Article.findOne({ _id: req.params.id })
+      .populate("saved")
+      .then(function(adArticle) {
+        res.json(adArticle)
+      })
+      .catch(function(err) {
+        res.json(err);
+      });
+  });
   
   router.post("/:id", function(req, res) {
     db.Comment.create(req.body)
