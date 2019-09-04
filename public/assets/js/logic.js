@@ -49,6 +49,15 @@ function showArticles() {
       commentsButton.addClass("btn btn-primary");
       commentContainer.append(commentsButton);
 
+      // var saveButton = $(
+      //   '<input data-id="' +
+      //     data[i]._id +
+      //     '" type="button" class="saveButton" value="Save"/>'
+      // );
+
+      // saveButton.addClass("btn btn-primary");
+      // commentContainer.append(saveButton);
+
       buttonsDiv.append(link, button);
       buttonsDiv.append(commentContainer);
       cardBody.append(cardImage);
@@ -122,4 +131,19 @@ $(document).on('click', '#clearArticles', function() {
     }).then(function() {
       $('#articles').empty();
     });
-})
+});
+
+// $(document).on('click', '.saveButton', function() {
+//   console.log("Save!");
+//   var article = $(this).attr("data-id");
+//   console.log("Article ID: " + article);
+//   $.ajax({
+//     method: "PUT",
+//     url: "/articles/" + article,
+//     data: {
+//       saved: 1
+//     }
+//   }).then(function(data) {
+//     console.log("Saved Article: " + data);
+//   });
+// });
