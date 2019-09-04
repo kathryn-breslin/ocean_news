@@ -49,14 +49,14 @@ function showArticles() {
       commentsButton.addClass("btn btn-primary");
       commentContainer.append(commentsButton);
 
-      var saveButton = $(
-        '<input data-id="' +
-          data[i]._id +
-          '" type="button" class="saveButton" value="Save"/>'
-      );
+      // var saveButton = $(
+      //   '<input data-id="' +
+      //     data[i]._id +
+      //     '" type="button" class="saveButton" value="Save"/>'
+      // );
 
-      saveButton.addClass("btn btn-primary");
-      commentContainer.append(saveButton);
+      // saveButton.addClass("btn btn-primary");
+      // commentContainer.append(saveButton);
 
       buttonsDiv.append(link, button);
       buttonsDiv.append(commentContainer);
