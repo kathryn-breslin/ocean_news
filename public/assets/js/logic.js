@@ -27,7 +27,7 @@ function showArticles() {
           data[i].link +
           '">Go to Article</a>'
       );
-      link.addClass("btn btn-primary");
+      link.addClass("btn btn-outline-primary");
       link.addClass("articleButton");
       link.addClass("float-right");
       link.attr("target", "_blank");
@@ -37,7 +37,7 @@ function showArticles() {
           data[i]._id +
           '" type="button" data-toggle="modal" data-target="#exampleModal" value="Add Comment"/>'
       );
-      button.addClass("btn btn-primary");
+      button.addClass("btn btn-outline-secondary");
       button.addClass("commentButton");
       //   button.addClass("float-right");
       var commentContainer = $('<div id="commentContainer"></div>');
@@ -46,7 +46,7 @@ function showArticles() {
           data[i]._id +
           '" type="button" class="commentsButton" data-toggle="modal" data-target="#commentsModal" value="View Comments"/>'
       );
-      commentsButton.addClass("btn btn-primary");
+      commentsButton.addClass("btn btn-outline-success");
       commentContainer.append(commentsButton);
 
       // var saveButton = $(
