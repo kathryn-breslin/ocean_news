@@ -6,7 +6,7 @@ body, html {
     background-image: url("../images/ocean-poster.png");
     background-repeat: no-repeat;
     background-position: center;
-    height: 100%;
+    height: 50%;
     background-size:100% 100%;}
 
 .jumbotron {
