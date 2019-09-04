@@ -113,3 +113,13 @@ $(document).on("click", ".commentButton", function() {
     $("#commentComment").empty();
   });
 });
+
+
+$(document).on('click', '#clearArticles', function() {
+    $.ajax({
+      method: "GET",
+      url: "/articles/clear"
+    }).then(function() {
+      $('#articles').empty();
+    });
+})

@@ -13,6 +13,17 @@ router.get('/', function(res, res) {
       })
   })
   
+  router.get("/clear", function(req, res) {
+    db.Article.remove({})
+        .then(function() {
+          return db.Comment.remove({});
+        })
+        .then(function() {
+          // res.json({ ok: true })
+          res.redirect("/")
+        })
+  });
+
   router.get('/scrape', function(req, res) {
     axios.get('https://www.oceannews.com/').then(function(response) {
       var $ = cheerio.load(response.data)
