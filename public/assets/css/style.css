@@ -23,6 +23,7 @@ body, html {
 
 #articlesContainer {
     background-color: #001F46;
+    text-align: center;
 }
 
 #articles {
@@ -32,6 +33,7 @@ body, html {
 
 .new-article-div {
     margin-bottom: 20px;
+    display: inline-block;
 }
 
 .linkImage {
@@ -50,7 +52,6 @@ margin: 20px;
 }
 
 .card {
-    float: left;
     margin: 20px;
 }
 
